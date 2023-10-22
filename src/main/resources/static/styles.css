@@ -1,0 +1,44 @@
+td, th, tr {
+    padding: 10px;
+    background-color: lightskyblue;
+    border: 1px solid black;
+    color: navy;
+}
+
+div {
+    padding: 15px;
+}
+
+a{
+    text-decoration: none;
+    color: navy;
+}
+
+
+.button{
+    padding: 5px;
+    margin: 2px;
+    background-color: lightskyblue;
+    border: 1px solid black;
+    color: navy;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.button_pressed{
+    padding: 5px;
+    margin: 2px;
+    background-color: navy;
+    border: 1px solid black;
+    color: lightskyblue;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.button:hover {
+    background-color: deepskyblue;
+}
+
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Task manager</title>
+</head>
+<body>
+    <table>
+            <thead>
+
+                    <th>
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}">ID</a>
+                    </th>
+                    <th>
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=description&sortDir=' + ${reverseSortDir}}">Description</a>
+                    </th>
+                    <th>
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=status&sortDir=' + ${reverseSortDir}}">Status</a>
+                    </th>
+
+            </thead>
+
+            <tbody>
+            <tr th:each="task : ${listTasks}">
+                <td th:text="${task.id}"></td>
+                <td th:text="${task.description}"></td>
+                <td th:text="${task.status}"></td>
+                <td>
+                    <a class="button" th:href="@{/showFormForUpdate/{id} (id=${task.id})}">edit</a>
+                </td>
+                <td>
+                    <a class="button" th:href="@{/deleteById/{id} (id=${task.id})}">delete</a>
+                </td>
+            </tr>
+            </tbody>
+    </table>
+    <div>
+        <span th:each="i : ${#numbers.sequence(1, totalPages)}">
+            <a class="button"
+               th:if="${currentPage != i}" th:href="@{'/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+            <a class="button_pressed"
+               th:unless="${currentPage != i}">[[${i}]]</a>
+        </span>
+    </div>
+    <div>
+        <a class="button" th:href="@{/showNewTaskForm}">Add new task</a>
+    </div>
+
+</body>
+</html>

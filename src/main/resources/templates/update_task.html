@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Edit task</title>
+</head>
+<body>
+<form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <p><input type="text" th:field="*{description}" placeholder="enter description"></p>
+    <p><select th:field="*{status}">
+        <option th:each="value : ${options}" th:value="${value}" th:text="${value}"></option>
+    </select></p>
+    <button class="button">Save changes</button>
+    <button class="button" th:action="@{/}">Cancel</button>
+</form>
+</body>
+</html>
